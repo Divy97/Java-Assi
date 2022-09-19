@@ -1,0 +1,13 @@
+JDBC
+
+1. import package (java.sql.*)
+2. 
+    a) load 
+    b) register the driver  
+
+    (com.mysql.jdbc.Driver)
+3. establish the connection 
+4. create the statement
+5. execute a query
+6. process results 
+7. close
