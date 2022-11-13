@@ -1,0 +1,1193 @@
+Enrollment number :- 202000319010141
+Roll no :- B_50
+Name :- Divy Parekh
+
+=========================== UNIT -1 ==================================
+
+Que 01 :-
+
+// Write a Java program to list out the files in the given directory.
+
+import java.io.File;
+
+public class Que01 {
+    public static void main(String[] args) {
+
+        File list = new File("../Practical_UNIT1");
+
+        String[] listOfFiles = list.list();
+
+        System.out.println("List of Files in given Directory");
+        for (String ele : listOfFiles) {
+            System.out.println(ele);
+        }
+
+    }
+}
+
+Que 02 :-
+
+// Write a Java program to check whether file is exist or not
+
+import java.io.File;
+
+public class Que02 {
+    public static void main(String[] args) {
+        File exists = new File("../Notes.txt");
+
+        if (exists.exists())
+            System.out.println("File Exists");
+        else
+            System.out.println("File not exists");
+    }
+}
+
+
+Que 03 :-
+
+// Write a Java program to check file is read only or not.
+
+import java.io.File;
+
+public class Que03 {
+    public static void main(String[] args) {
+        File readOnly = new File("../Notes.txt");
+
+        if (!readOnly.canWrite() && readOnly.canRead())
+            System.out.println("File is Read Only");
+        else
+            System.out.println("File not Read Only");
+    }
+}
+
+Que 04 :-
+
+// Write a Java program to display file size.
+
+import java.io.File;
+
+public class Que04 {
+    public static void main(String[] args) {
+        File size = new File("../Notes.txt");
+
+        System.out.println("Size of File : " + size.length() + " bytes");
+    }
+}
+
+Que 05 :- 
+
+// Write a Java program to print file information.
+
+import java.io.File;
+import java.util.Scanner;
+
+public class Que05 {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter File Path: ");
+        String pathName = input.nextLine();
+        File information = new File(pathName);
+
+        System.out.println("File Information");
+
+        System.out.println("File Name: " + information.getName());
+        System.out.println("File Exists: " + information.exists());
+        System.out.println("File is Writable: " + information.canWrite());
+        System.out.println("File is Readable: " + information.canRead());
+        System.out.println("Is Directory: " + information.isDirectory());
+        System.out.println("Is File: " + information.isFile());
+        System.out.println("File Size: " + information.length() + " bytes");
+        System.out.println("File Path: " + information.getPath());
+        System.out.println("Parent Directory: " + information.getParent());
+        System.out.println("File Absolute Path: " + information.getAbsolutePath());
+        System.out.println("File is Hidden: " + information.isHidden());
+
+    }
+}
+
+Que 06 :-
+
+
+//Write a Java program to delete file, hide a file
+import java.io.File;
+
+public class Que06 {
+    public static void main(String[] args) {
+        File deleteFile = new File("Demo.txt");
+
+        System.out.println("Is Hidden: " + deleteFile.isHidden());
+
+        System.out.println("File Deleted: " + deleteFile.delete());
+    }
+}
+
+Que 08 :-
+
+
+// Write a Java program to that will read a data from one file and write it to other file using 
+// File Handling Concepts.
+
+import java.io.*;
+
+public class Que08 {
+    public static void main(String[] args) {
+        try {
+            FileInputStream in = new FileInputStream("./Notes.txt");
+            FileOutputStream out = new FileOutputStream("./output.txt");
+
+            int index;
+            while ((index = in.read()) != -1) {
+                out.write((char) index);
+            }
+
+            in.close();
+            out.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+Que 09 :-
+
+
+/*9. Write a Java program to write a byte array to BufferedArrayOutputStream.*/
+import java.util.Scanner;
+import java.io.*;
+
+public class Que09 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.println("Enter data");
+            String[] s1 = new String[2];
+            for (int i = 0; i < 2; i++) {
+                s1[i] = sc.nextLine();
+            }
+            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("demox1.dat"));
+            for (int i = 0; i < 2; i++) {
+                bos.write(s1[i].getBytes());
+            }
+
+            bos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+Que 10 :-
+
+
+/*10. Write a Java Program to read/write file using DataInputStream/DataOutputStream..*/
+import java.util.Scanner;
+import java.io.*;
+
+public class Que10 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            // System.out.println("Enter data");
+            // String s1=sc.nextLine();
+            File fin = new File("demox1.dat");
+            DataInputStream dis = new DataInputStream(new FileInputStream(fin));
+            System.out.println(dis.readFloat());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+Que 13 :- 
+
+
+/*13. Write a program to write your name and address into file using FileWriter and read same
+file using FileReader. */
+import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.*;
+
+public class Que13 {
+    public static void main(String args[]) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter file name");
+        String s = sc.nextLine();
+        FileWriter fw = new FileWriter(s);
+        System.out.println("Enter name");
+        String name = sc.nextLine();
+        System.out.println("Enter address");
+        String address = sc.nextLine();
+        // System.out.print("Name is ");
+        for (int i = 0; i < name.length(); i++) {
+            fw.write(name.charAt(i));
+
+        }
+        // System.out.println("Address is ");
+        for (int i = 0; i < address.length(); i++) {
+            fw.write(address.charAt(i));
+        }
+        fw.close();
+
+        FileReader fr = new FileReader(s);
+        int i;
+        while ((i = fr.read()) != -1) {
+            System.out.print((char) i);
+        }
+        fr.close();
+
+    }
+}
+
+Que 14 :-
+
+
+/*14. Write a Java program to check whether a file exists or not if a file exists than change a
+file permission to readable. */
+import java.util.Scanner;
+import java.io.*;
+
+class Que14 {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter file name");
+        String s = sc.nextLine();
+        File f = new File(s);
+        try {
+            if (f.exists()) {
+                f.setReadable(true);
+                System.out.println("File exists and permission given to read");
+            } else {
+                System.out.println("File does not exist");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+Que 15 :-
+
+
+/*15. Write a Java program to check whether a file exists or not if a file exists than change a
+file permission to writable.*/
+import java.io.*;
+import java.util.Scanner;
+
+public class Que15 {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter file name");
+        String s = sc.nextLine();
+        File f = new File(s);
+        // System.out.println(f.getAbsolutePath());
+        System.out.println(f.getPath());
+        System.out.println(f.getParent());
+        try {
+            if (f.exists()) {
+                f.setWritable(true);
+                System.out.println("Exists and permission given to write");
+            } else {
+                System.out.println(" Does not exists");
+            }
+
+        } catch (Exception e)
+
+        {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+
+=========================== UNIT -2 ==================================
+
+Que 01 :- 
+
+
+// Write a program for adding 10 elements in a Linkedlist and display 
+// them using foreach loop
+import java.util.*;
+
+public class Que01 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        LinkedList<Integer> elements = new LinkedList<>();
+
+        System.out.println("Enter 10 Elements: ");
+        for (int i = 0; i < 10; i++) {
+            int ele1 = input.nextInt();
+            elements.add(ele1);
+        }
+
+        System.out.println("List of Elements: ");
+        System.out.println(elements);
+    }
+}
+
+Que 02 :- 
+
+//Write a program for adding 10 elements in a Arraylist and display them
+//  using ListIterator.
+
+import java.util.*;
+
+public class Que02 {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        ArrayList<Integer> elements = new ArrayList<>();
+
+        System.out.println("Enter 10 Elements: ");
+        for (int i = 0; i < 10; i++) {
+            int ele1 = input.nextInt();
+            elements.add(ele1);
+        }
+
+        ListIterator list = elements.listIterator();
+
+        System.out.println("ArrayList Using ListIterator: ");
+        while (list.hasNext()) {
+            System.out.println(list.next());
+        }
+
+    }
+}
+
+Que 03 :-
+
+// Write a program for adding 10 elements in a HashMap and display them.
+
+import java.util.*;
+
+public class Que03 {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        HashMap<String, Integer> elements = new HashMap<>();
+
+        System.out.println("Enter 10 Elements: ");
+        for (int i = 0; i < 10; i++) {
+            int ele1 = input.nextInt();
+            elements.put("Element No" + i + " ", ele1);
+        }
+
+        System.out.println("Elements of HaspMap: ");
+        System.out.println(elements);
+
+    }
+}
+
+Que 04 :-
+
+/* Write a program that will
+-create an array of 5 cars
+-print the array
+-add 2 cars at 3rd positins
+-print the array with changes
+-remove the car from 2nd position
+-print the array with changes */
+
+import java.util.*;
+
+public class Que04 {
+    public static void main(String[] args) {
+        ArrayList<String> cars = new ArrayList<>();
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter 5 car Names: ");
+        for (int i = 0; i < 5; i++) {
+            String car = input.nextLine();
+            cars.add(car);
+        }
+
+        System.out.println("Car Names: ");
+        System.out.println(cars);
+
+        cars.add(3, "BMW");
+        cars.add(3, "Fiat");
+
+        System.out.println("Car Names after changes: ");
+        System.out.println(cars);
+
+        cars.remove(2);
+        System.out.println("Car Names after removing Element at 2nd position: ");
+        System.out.println(cars);
+
+    }
+}
+
+Que 05 :- 
+
+// Write a program for adding 10 elements in a TreeMap and display them.
+
+import java.util.*;
+
+public class Que05 {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        TreeMap<String, Integer> elements = new TreeMap<>();
+
+        System.out.println("Enter 10 Elements: ");
+        for (int i = 0; i < 10; i++) {
+            int ele = input.nextInt();
+            elements.put("Element No " + i, ele);
+        }
+
+        System.out.println("TreeMap Elements: ");
+        System.out.println(elements);
+    }
+}
+
+Que 06 :-
+
+
+// Write a program showing various methods of HashMap class.
+import java.util.*;
+
+public class Que06 {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        HashMap<Integer, Integer> elements = new HashMap<>();
+
+        System.out.println("Enter 10 Elements: ");
+        for (int i = 0; i < 10; i++) {
+            int ele1 = input.nextInt();
+            elements.put(i, ele1);
+        }
+
+        System.out.println("Elements of HashMap: ");
+        System.out.println(elements);
+
+        System.out.println("Get Element: ");
+        System.out.println(elements.get(1));
+
+        System.out.println("Remove Element: ");
+        System.out.println(elements.remove(1));
+
+        System.out.println("Size of HashMap: ");
+        System.out.println(elements.size());
+
+        System.out.println("keyset: ");
+        for (Integer i : elements.keySet()) {
+            System.out.println("key: " + i + " value: " + elements.get(i));
+        }
+
+        System.out.println("Clear HashMap ");
+        elements.clear();
+
+    }
+}
+
+Que 07 :-
+
+import java.util.*;
+
+// Write a program showing various methods of TreeMap class.
+public class Que07 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        TreeMap<Integer, Integer> elements = new TreeMap<>();
+
+        System.out.println("Enter 10 Elements: ");
+        for (int i = 0; i < 10; i++) {
+            int ele1 = input.nextInt();
+            elements.put(i, ele1);
+        }
+
+        System.out.println("Elements of TreeMap: ");
+        System.out.println(elements);
+
+        System.out.println("Get Element: ");
+        System.out.println(elements.get(1));
+
+        System.out.println("Remove Element: ");
+        System.out.println(elements.remove(1));
+
+        System.out.println("Size of TreeMap: ");
+        System.out.println(elements.size());
+
+        System.out.println("keyset: ");
+        for (Integer i : elements.keySet()) {
+            System.out.println("key: " + i + " value: " + elements.get(i));
+        }
+
+        System.out.println("Clear TreeMap ");
+        elements.clear();
+    }
+}
+
+Que 08 :- 
+
+// Write a program showing various methods of HashSet class.
+
+import java.util.*;
+
+public class Que8 {
+    public static void main(String[] args) {
+
+        HashSet<Integer> elements = new HashSet<Integer>();
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter 5 Elements: ");
+        for (int i = 0; i < 5; i++) {
+            int ele1 = input.nextInt();
+            elements.add(ele1);
+        }
+
+        System.out.print("Display Elements of HashSet");
+        System.out.println(elements);
+
+        System.out.print("contains in HashSet ");
+        System.out.println(elements.contains(6));
+
+        System.out.print("remove 2nd Element from HashSet ");
+        elements.remove(1);
+
+        System.out.print("Size of HashSet ");
+        System.out.println(elements.size());
+
+        System.out.print("clear HashSet");
+        elements.clear();
+    }
+}
+
+Que 09 :-
+
+import java.util.*;
+
+public class Que09 {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        Vector<Integer> elements = new Vector<Integer>();
+
+        System.out.println("Enter 10 Elements: ");
+        for (int i = 0; i < 10; i++) {
+            int ele = input.nextInt();
+            elements.add(ele);
+        }
+        Enumeration displayVector = elements.elements();
+
+        System.out.println("Vector elements: ");
+        while (displayVector.hasMoreElements())
+            System.out.println(displayVector.nextElement());
+    }
+}
+
+Que 10 :-
+
+//10. Write a program to store elements in Hashset and search a perticular element in it.
+import java.util.*;
+
+public class Que10 {
+    public static void main(String[] args) {
+
+        HashSet<Integer> elements = new HashSet<Integer>();
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter 5 Elements: ");
+        for (int i = 0; i < 5; i++) {
+            int ele1 = input.nextInt();
+            elements.add(ele1);
+        }
+
+        System.out.print("Enter Element to check hashSet contains a element or not: ");
+        int contain = input.nextInt();
+
+        if (elements.contains(contain)) {
+            System.out.println("Element is in a HashSet ");
+        } else {
+            System.out.println("Element is not in a HashSet ");
+        }
+
+    }
+}
+
+
+=========================== UNIT -3 ==================================
+
+Que 01 :-
+
+// Write a Java program to that will Create one frame with a label “WELCOME TO GLS UNIVERSITY”.
+
+import javax.swing.*;
+
+public class Que01 {
+    public static void main(String[] args) {
+
+        // objects
+        JFrame frame = new JFrame("Label Frame");
+        JLabel label = new JLabel();
+
+        // frame
+        frame.setSize(200, 400);
+        frame.setVisible(true);
+
+        // label
+        label.setText("GLS UNIVERSITY");
+        frame.add(label);
+
+    }
+}
+
+Que 02 :-
+
+// Write a Java program to that will Create one frame, when we press on cancel button of 
+// the frame the message “frame is closed” should be printed on the terminal.
+
+import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.*;
+
+class WindowClose extends WindowAdapter {
+    public void windowClosing(WindowEvent we) {
+        System.out.println("frame is closed");
+        System.exit(0);
+    }
+}
+
+public class Que02 {
+    public static void main(String[] args) {
+
+        // frame
+
+        JFrame frame = new JFrame("Closing button demo");
+        frame.setSize(200, 400);
+        frame.setVisible(true);
+
+        // window Closing
+
+        WindowClose windowClosing = new WindowClose();
+        frame.addWindowListener(windowClosing);
+
+    }
+}
+
+Que 03 :-
+
+// Write a Java program that will Create one button named as “click me” and clicking on it 
+// the message “welcome to advance java” will be printed on terminal.
+
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Que03 {
+
+    public static void main(String[] args) {
+        // frame
+
+        JFrame frame = new JFrame("Closing button demo");
+        frame.setSize(200, 400);
+        frame.setVisible(true);
+        // button
+
+        JButton button = new JButton("Click Here");
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand() == "Click Here") {
+                    System.out.println("BUTTON CLICKED");
+                }
+            }
+        });
+        frame.add(button);
+    }
+
+}
+
+Que 04 :-
+
+
+// Write a Java program that will Create three button named as “BUTTON1”,“BUTTON2” 
+// and “BUTTON3”.When we click on any button the text written on that button will be 
+// printed on terminal.
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+
+class Que04 extends JFrame {
+
+    JButton button1, button2, button3;
+    Container con;
+
+    public Que04() {
+
+        setSize(300, 100);
+        // setVisible(true);
+
+        con = getContentPane();
+        con.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+        button1 = new JButton("button1");
+        button2 = new JButton("button2");
+        button3 = new JButton("button3");
+
+        con.add(button1);
+        con.add(button2);
+        con.add(button3);
+
+        button1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(e.getActionCommand());
+            }
+        });
+
+        button2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(e.getActionCommand());
+            }
+        });
+
+        button3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(e.getActionCommand());
+            }
+        });
+    }
+
+    // public void actionPerformed(ActionEvent e) {
+    // Object buttonObject = e.getSource();
+    // if (buttonObject == button1) {
+    // System.out.println(e.getActionCommand());
+    // } else if (buttonObject == button2) {
+    // System.out.println(e.getActionCommand());
+    // } else if (buttonObject == button3) {
+    // System.out.println(e.getActionCommand() + " hey ");
+    // } else {
+    // System.out.println("");
+    // }
+    // }
+
+    public static void main(String[] args) {
+        Que04 b = new Que04();
+        b.setVisible(true);
+    }
+}
+
+Que 05 :-
+
+// Write a Java program that will Create one image button and clicking on it the messeage 
+// “welcome to advance java” will be printed on terminal.
+
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Que05 {
+
+    public static void main(String[] args) {
+        // frame
+
+        JFrame frame = new JFrame("Closing button demo");
+        frame.setSize(400, 400);
+        frame.setVisible(true);
+        // button
+
+        JButton button = new JButton(new ImageIcon("./photo.png"));
+
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("welcome to advance java");
+            }
+        });
+        frame.add(button);
+    }
+
+}
+
+Que 06 :-
+
+// Write a Java program that will Create one image button and clicking on it another image
+// button must be display.
+
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+
+public class Que06 extends JFrame {
+    Container con;
+    JButton button1, button2;
+
+    public Que06() {
+        setSize(600, 600);
+        con = getContentPane();
+        con.setLayout(new FlowLayout(FlowLayout.LEFT));
+        button1 = new JButton(new ImageIcon("./photo.png"));
+
+        con.add(button1);
+
+        button1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                button2 = new JButton(new ImageIcon("./photo2.png"));
+                con.add(button2);
+                button2.setBounds(0, 150, 200, 200);
+            }
+        });
+
+    }
+
+    public static void main(String[] args) {
+        Que06 b = new Que06();
+        b.setVisible(true);
+    }
+}
+
+Que 07 :-
+
+
+// Write a Java program that will Perform all mouseevents and print appropriate message 
+// related to every event.
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+
+public class Que07 extends JFrame implements MouseListener {
+    JButton button;
+    Container con;
+
+    public Que07() {
+
+        setSize(300, 300);
+        con = getContentPane();
+        con.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+        button = new JButton("Button");
+
+        con.add(button);
+
+        button.addMouseListener(this);
+    }
+
+    public void mouseClicked(MouseEvent e) {
+        System.out.println("Mouse Clicked");
+    }
+
+    public void mouseEntered(MouseEvent e) {
+        System.out.println("Mouse Entered");
+    }
+
+    public void mouseExited(MouseEvent e) {
+        System.out.println("Mouse Exited");
+    }
+
+    public void mousePressed(MouseEvent e) {
+        System.out.println("Mouse Pressed");
+    }
+
+    public void mouseReleased(MouseEvent e) {
+        System.out.println("Mouse Released");
+    }
+
+    public static void main(String[] args) {
+        Que07 b = new Que07();
+        b.setVisible(true);
+    }
+}
+
+Que 08 :-
+
+// Write a Java program that will create a square on the frame whenever the mouse is 
+// clicked on the frame.
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Que08 extends JFrame implements MouseListener {
+    Container con;
+
+    public Que08() {
+
+        setSize(300, 300);
+        con = getContentPane();
+        con.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+        con.addMouseListener(this);
+    }
+
+    public void mouseClicked(MouseEvent e) {
+        Graphics g = getGraphics();
+        g.setColor(Color.RED);
+        g.fillRect(e.getX(), e.getY(), 30, 30);
+    }
+
+    public void mouseEntered(MouseEvent e) {
+        System.out.println("Mouse Entered");
+    }
+
+    public void mouseExited(MouseEvent e) {
+        System.out.println("Mouse Exited");
+    }
+
+    public void mousePressed(MouseEvent e) {
+        System.out.println("Mouse Pressed");
+    }
+
+    public void mouseReleased(MouseEvent e) {
+        System.out.println("Mouse Released");
+    }
+
+    public static void main(String[] args) {
+        Que08 b = new Que08();
+        b.setVisible(true);
+    }
+}
+
+Que 09 :-
+
+
+// Write a Java program that will print your name as lable whenevr you click on the button.
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+
+public class Que09 extends JFrame {
+    Container con;
+    JButton button1;
+    JLabel label;
+
+    public Que09() {
+        setSize(600, 600);
+        con = getContentPane();
+        con.setLayout(new FlowLayout(FlowLayout.LEFT));
+        button1 = new JButton("Click me");
+
+        label = new JLabel("Click button to get Name");
+        con.add(label);
+        con.add(button1);
+
+        button1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                label.setText("Divy");
+            }
+        });
+
+    }
+
+    public static void main(String[] args) {
+        Que09 b = new Que09();
+        b.setVisible(true);
+    }
+}
+
+Que 10 :-
+
+// Write a Java program that will create a circle on the frame whenever the mouse is 
+// clicked on the frame.
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Que10 extends JFrame implements MouseListener {
+    Container con;
+
+    public Que10() {
+
+        setSize(300, 300);
+        con = getContentPane();
+        con.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+        con.addMouseListener(this);
+    }
+
+    public void mouseClicked(MouseEvent e) {
+        Graphics g = getGraphics();
+        g.setColor(Color.RED);
+        g.fillOval(e.getX(), e.getY(), 30, 30);
+    }
+
+    public void mouseEntered(MouseEvent e) {
+        System.out.println("Mouse Entered");
+    }
+
+    public void mouseExited(MouseEvent e) {
+        System.out.println("Mouse Exited");
+    }
+
+    public void mousePressed(MouseEvent e) {
+        System.out.println("Mouse Pressed");
+    }
+
+    public void mouseReleased(MouseEvent e) {
+        System.out.println("Mouse Released");
+    }
+
+    public static void main(String[] args) {
+        Que10 b = new Que10();
+        b.setVisible(true);
+    }
+}
+
+
+=========================== UNIT -5 ==================================
+
+Que 01 :-
+
+// Create a JDBC program to perform the insertion of data into database.
+
+import java.sql.*;
+
+public class Que01 {
+
+    static final String DB_URL = "jdbc:mysql://localhost:3306/divydb";
+    static final String USER = "root";
+    static final String PASS = "divy9708";
+
+    public static void main(String[] args) {
+        // Open a connection
+        try (
+                Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+                Statement stmt = conn.createStatement();) {
+            // Execute a query
+            String sql = "INSERT INTO persons VALUES (103, 'Ali', 'Akbar', 'xyz avenue', 'mumbai')";
+            stmt.executeUpdate(sql);
+            sql = "INSERT INTO persons VALUES (104, 'Zubair', 'Ahmed', 'wwe avenue', 'goa')";
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Que 02 :-
+
+
+// Create a JDBC program to retrieve some data from database and display it on terminal.
+import java.sql.*;
+
+public class Que02 {
+
+    static final String DB_URL = "jdbc:mysql://localhost:3306/divydb";
+    static final String USER = "root";
+    static final String PASS = "divy9708";
+
+    public static void main(String args[]) throws Exception {
+
+        int personID;
+        String firstName;
+
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement st = conn.createStatement();
+        ResultSet result = st.executeQuery("select * from persons");
+
+        System.out.println("personID" + " firstName");
+        while (result.next()) { // Position the cursor 3
+            personID = result.getInt(1);
+            firstName = result.getString(3); // Retrieve only the first column value
+            System.out.println(personID + "       " + firstName);
+
+        }
+
+        conn.close();
+        st.close();
+    }
+}
+
+Que 03 :-
+
+
+// Create a JDBC program to delete some data from database.
+import java.sql.*;
+
+public class Que03 {
+
+    static final String DB_URL = "jdbc:mysql://localhost:3306/divydb";
+    static final String USER = "root";
+    static final String PASS = "divy9708";
+
+    public static void main(String args[]) throws Exception {
+
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement st = conn.createStatement();
+
+        String sql = "DELETE FROM persons WHERE personID=102;";
+        st.executeUpdate(sql);
+
+        conn.close();
+
+    }
+}
+
+Que 04 :-
+
+
+// Create a JDBC program to delete some data from database.
+import java.sql.*;
+
+public class Que04 {
+
+    static final String DB_URL = "jdbc:mysql://localhost:3306/divydb";
+    static final String USER = "root";
+    static final String PASS = "divy9708";
+
+    public static void main(String args[]) throws Exception {
+
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement st = conn.createStatement();
+
+        String sql = "UPDATE persons SET city = 'ahmedabad' WHERE personID = 101";
+        st.executeUpdate(sql);
+
+        conn.close();
+
+    }
+}
+
+Que 05 :-
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class Que05 {
+    static final String DB_URL = "jdbc:mysql://localhost:3306/divydb";
+    static final String USER = "root";
+    static final String PASS = "divy9708";
+
+    public static void main(String[] args) throws Exception {
+
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement st = conn.createStatement();
+
+        Scanner input = new Scanner(System.in);
+
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO persons VALUES (?,?,?,?,?)");
+
+        System.out.println("Enter id person to insert");
+        int personID = input.nextInt();
+        System.out.println("Enter firstName to insert");
+        String firstName = input.next();
+        System.out.println("Enter lastName to insert");
+        String lastName = input.next();
+        System.out.println("Enter address to insert");
+        String address = input.next();
+        System.out.println("Enter city to insert");
+        String city = input.next();
+
+        stmt.setInt(1, 105);
+        stmt.setString(2, firstName);
+        stmt.setString(3, lastName);
+        stmt.setString(4, address);
+        stmt.setString(5, city);
+
+        stmt.executeUpdate();
+        System.out.println("inserted");
+
+        conn.close();
+    }
+}
+
+

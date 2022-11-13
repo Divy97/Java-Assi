@@ -9,7 +9,7 @@ public class Que05 {
     public static void main(String[] args) throws Exception {
 
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-        Statement st = conn.createStatement();
+        // Statement st = conn.createStatement();
 
         Scanner input = new Scanner(System.in);
 

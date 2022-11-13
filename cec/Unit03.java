@@ -3,6 +3,7 @@
 // controls on JFrame. Initialize the label value with 0. When
 // user click on button increment counter by one and display the
 // value on label. 
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -29,7 +30,7 @@ public class Unit03 extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == button) {
+        if (e.getActionCommand() == "Click me") {
             increment++;
             label.setText("" + increment);
         }

@@ -1,0 +1,116 @@
+Enrollment number :- 202000319010141
+Roll no :- B_50
+Name :- Divy Parekh
+
+Unit 01 :- 
+
+// Write a java program that reads a text file and creates a new
+// text file with each letter converted to upper case whether it is
+// lower case or upper case.
+
+import java.util.Scanner;
+import java.io.*;
+
+public class Unit01 {
+    public static void main(String[] args) throws FileNotFoundException {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter File Name to read: ");
+        String pathNameRead = input.nextLine();
+
+        System.out.println("Enter File Name to write: ");
+        String pathNameWrite = input.nextLine();
+
+        FileInputStream readFile = new FileInputStream(pathNameRead);
+        FileOutputStream writeFile = new FileOutputStream(pathNameWrite);
+
+        try {
+
+            int index;
+            while ((index = readFile.read()) != -1) {
+
+                writeFile.write(Character.toUpperCase((char) index));
+            }
+
+        } catch (Exception error) {
+            System.out.println(error);
+        }
+
+    }
+}
+
+
+Unit 02 :-
+
+
+/*UNIT2 Creating linked list of long type and perform following
+operations to it.
+Add:1,2,3,4
+Return head of queue
+Return and remove head of queue.
+POP: 3 times */
+import java.util.*;
+
+public class Unit02 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // LinkedList<Long> l1=new LinkedList<Long>();
+        LinkedList<Integer> l1 = new LinkedList<Integer>();
+        l1.add(1);
+        l1.add(2);
+        l1.add(3);
+        l1.add(4);
+        System.out.println(l1.peek());
+        // System.out.println(l1.remove());
+        System.out.println(l1.pop());
+        System.out.println(l1.pop());
+        System.out.println(l1.pop());
+
+    }
+}
+
+Unit 03 :- 
+
+
+// Write a GUI java program which contain JButton and JLabel
+// controls on JFrame. Initialize the label value with 0. When
+// user click on button increment counter by one and display the
+// value on label. 
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Unit03 extends JFrame implements ActionListener {
+
+    JLabel label;
+    JButton button;
+    Container con;
+    int increment = 0;
+
+    public Unit03() {
+        setSize(600, 600);
+        con = getContentPane();
+        con.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+        button = new JButton("Click me");
+        button.addActionListener(this);
+
+        label = new JLabel("0");
+
+        con.add(label);
+        con.add(button);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button) {
+            increment++;
+            label.setText("" + increment);
+        }
+    }
+
+    public static void main(String[] args) {
+        Unit03 b = new Unit03();
+        b.setVisible(true);
+    }
+}

@@ -15,14 +15,15 @@ public class Que02 {
 
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement st = conn.createStatement();
+
         ResultSet result = st.executeQuery("select * from persons");
 
         System.out.println("personID" + " firstName");
+
         while (result.next()) { // Position the cursor 3
             personID = result.getInt(1);
             firstName = result.getString(3); // Retrieve only the first column value
             System.out.println(personID + "       " + firstName);
-
         }
 
         conn.close();
