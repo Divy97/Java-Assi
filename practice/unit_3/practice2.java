@@ -17,10 +17,12 @@ public class practice2 {
         JButton button1 = new JButton("Click 1!");
         JButton button2 = new JButton("Click 2!");
         JButton button3 = new JButton("Click 3!");
+        JButton button4 = new JButton(new ImageIcon("../../Unit_3/photo.png"));
 
         frame.add(button1);
         frame.add(button2);
         frame.add(button3);
+        frame.add(button4);
 
         frame.setVisible(true);
         frame.setSize(500, 600);
@@ -49,6 +51,12 @@ public class practice2 {
             }
         });
 
+        button4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JButton newButton = new JButton(new ImageIcon("../../Unit_3/photo2.png"));
+                frame.add(newButton);
+            }
+        });
         WindowClose windowClosing = new WindowClose();
         frame.addWindowListener(windowClosing);
     }
