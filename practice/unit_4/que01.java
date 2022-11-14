@@ -15,8 +15,8 @@ public class que01 {
         JFrame frame = new JFrame("J_Label");
         JToggleButton button = new JToggleButton("ON");
 
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        button.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
                 if (button.isSelected()) {
                     button.setText("OFF");
                     System.out.println("OFF");
