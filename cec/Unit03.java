@@ -26,6 +26,7 @@ public class Unit03 extends JFrame implements ActionListener {
         label = new JLabel("0");
 
         con.add(label);
+
         con.add(button);
     }
 

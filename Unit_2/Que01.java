@@ -9,13 +9,19 @@ public class Que01 {
 
         LinkedList<Integer> elements = new LinkedList<>();
 
-        System.out.println("Enter 10 Elements: ");
-        for (int i = 0; i < 10; i++) {
+        System.out.println("Enter 3 Elements: ");
+        for (int i = 0; i < 3; i++) {
             int ele1 = input.nextInt();
+
             elements.add(ele1);
         }
 
         System.out.println("List of Elements: ");
+        for (Integer e : elements) {
+            System.out.println(e);
+        }
+
         System.out.println(elements);
+
     }
 }

@@ -9,7 +9,7 @@ public class Que06 {
         HashMap<Integer, Integer> elements = new HashMap<>();
 
         System.out.println("Enter 10 Elements: ");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             int ele1 = input.nextInt();
             elements.put(i, ele1);
         }
@@ -28,7 +28,12 @@ public class Que06 {
 
         System.out.println("keyset: ");
         for (Integer i : elements.keySet()) {
-            System.out.println("key: " + i + " value: " + elements.get(i));
+            System.out.println(i);
+        }
+
+        System.out.println("keyset: ");
+        for (Integer i : elements.values()) {
+            System.out.println(i);
         }
 
         System.out.println("Clear HashMap ");

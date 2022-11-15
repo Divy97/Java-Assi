@@ -13,6 +13,5 @@ public class Que01 {
         for (String ele : listOfFiles) {
             System.out.println(ele);
         }
-
     }
 }

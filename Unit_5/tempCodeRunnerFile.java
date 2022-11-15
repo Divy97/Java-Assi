@@ -1,1 +1,1 @@
-executeUpdate
+throws

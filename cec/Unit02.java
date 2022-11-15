@@ -16,7 +16,7 @@ public class Unit02 {
         l1.add(2);
         l1.add(3);
         l1.add(4);
-        System.out.println(l1.peek());
+        System.out.println(l1.poll());
         // System.out.println(l1.remove());
         System.out.println(l1.pop());
         System.out.println(l1.pop());

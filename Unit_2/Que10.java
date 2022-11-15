@@ -15,9 +15,9 @@ public class Que10 {
         }
 
         System.out.print("Enter Element to check hashSet contains a element or not: ");
-        int contain = input.nextInt();
+        int isContain = input.nextInt();
 
-        if (elements.contains(contain)) {
+        if (elements.contains(isContain)) {
             System.out.println("Element is in a HashSet ");
         } else {
             System.out.println("Element is not in a HashSet ");

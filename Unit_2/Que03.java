@@ -10,7 +10,7 @@ public class Que03 {
         HashMap<String, Integer> elements = new HashMap<>();
 
         System.out.println("Enter 10 Elements: ");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             int ele1 = input.nextInt();
             elements.put("Element No" + i + " ", ele1);
         }

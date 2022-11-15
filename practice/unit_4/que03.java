@@ -24,17 +24,17 @@ public class que03 {
             }
         });
 
-        // JButton button = new JButton("SHOW");
-        // frame.add(button);
-        // frame.setLayout(new FlowLayout(FlowLayout.LEFT));
-        // button.addActionListener(new ActionListener() {
-        // public void actionPerformed(ActionEvent e) {
-        // String data = "";
-        // if (list.getSelectedIndex() != -1) {
-        // data = "Programming language Selected: " + list.getSelectedValue();
-        // System.out.println(data);
-        // }
-        // }
-        // });
+        JButton button = new JButton("SHOW");
+        frame.add(button);
+        frame.setLayout(new FlowLayout(FlowLayout.LEFT));
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String data = "";
+                if (list.getSelectedIndex() != -1) {
+                    data = "Programming language Selected: " + list.getSelectedValue();
+                    System.out.println(data);
+                }
+            }
+        });
     }
 }

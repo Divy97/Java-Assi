@@ -11,7 +11,7 @@ public class Que02 {
         ArrayList<Integer> elements = new ArrayList<>();
 
         System.out.println("Enter 10 Elements: ");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             int ele1 = input.nextInt();
             elements.add(ele1);
         }

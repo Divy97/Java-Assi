@@ -9,7 +9,7 @@ public class Que05 {
         TreeMap<String, Integer> elements = new TreeMap<>();
 
         System.out.println("Enter 10 Elements: ");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             int ele = input.nextInt();
             elements.put("Element No " + i, ele);
         }

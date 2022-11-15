@@ -68,7 +68,7 @@ public class Unit05 extends JFrame implements ActionListener {
 
             try {
                 Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-                Statement st = conn.createStatement();
+                // Statement st = conn.createStatement();
 
                 PreparedStatement stmt = conn.prepareStatement("INSERT INTO inquiry VALUES (?,?,?)");
                 stmt.setString(1, name);
